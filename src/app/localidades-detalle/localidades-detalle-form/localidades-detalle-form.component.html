@@ -1,0 +1,29 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="localidadId" [value]="service.formData.localidadId" />
+    
+    <div class="form-group">
+        <label>PAIS</label>
+        <select formControlPais="pais" class="form-control form-control-lg" (change)="onChangePais($any($event.target).value)">
+            <option value="">Seleccione un pais</option>
+            <option *ngFor="let pais of paises" [value]="pais.paisId">{{pais.nombre}}</option>
+        </select>
+    </div>    
+    
+    <div class="form-group">
+        <label>PROVINCIA</label>        
+        <select name="provinciaId" #provinciaId="ngModel" [(ngModel)]="service.formData.provinciaId" class="form-control form-control-lg">
+            <option value="">Seleccione una provincia</option>
+            <option *ngFor="let provincia of provincias" [value]="provincia.provinciaId">{{provincia.nombre}}</option>
+        </select>
+    </div>    
+
+    
+    <div class="form-group">
+        <label>NOMBRE</label>
+        <input class="form-control form-control-lg" placeholder="Localidad" name="nombre"
+            #nombre="ngModel" [(ngModel)]="service.formData.nombre">            
+    </div>    
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">AGREGAR</button>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Lista de localidades</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-localidades-detalle-form></app-localidades-detalle-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <!-- <th>LocalidadId</th> -->
+                    <th>Nombre</th>                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.listLocalidad">
+                    <!-- <td (click)="populateForm(pd)">{{pd.localidadId}}</td> -->
+                    <td (click)="populateForm(pd)">{{pd.nombre}}</td>                    
+                    <!-- <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.localidadId)"></i>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
